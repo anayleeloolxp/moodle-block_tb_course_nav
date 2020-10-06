@@ -39,7 +39,7 @@ class block_tb_course_nav_nav_renderer extends plugin_renderer_base {
      *
      * Render HTML template.
      *
-     * @param stdClass|stdObject $template
+     * @param $template
      * @return bool|string
      * @throws moodle_exception
      */
