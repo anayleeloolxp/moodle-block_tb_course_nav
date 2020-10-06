@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once ($CFG->dirroot . '/course/lib.php');
-require_once ($CFG->dirroot . '/course/format/lib.php');
+require_once($CFG->dirroot . '/course/lib.php');
+require_once($CFG->dirroot . '/course/format/lib.php');
 
 /**
  * Define the block course modulenavigation.
@@ -90,7 +90,7 @@ class block_tb_course_nav extends block_base {
      * @throws moodle_exception
      */
     public function get_content() {
-        global $DB, $PAGE;
+        global $DB;
 
         if (!is_null($this->content)) {
             return $this->content;
@@ -115,7 +115,7 @@ class block_tb_course_nav extends block_base {
             return $this->content;
         }
 
-        if ($PAGE->pagelayout == 'admin') {
+        if ($this->page->pagelayout == 'admin') {
             return $this->content;
         }
 
@@ -378,7 +378,6 @@ class block_tb_course_nav extends block_base {
                     '/course/view.php',
                     [
                         'id' => $course->id,
-                        //'section' => $i
                     ]
                 );
                 $template->courseurl = $courseurl->out();
@@ -435,8 +434,8 @@ class block_tb_course_nav extends block_base {
      *
      * Function to get the previous and next values in an array.
      *
-     * @param $array
-     * @param $current
+     * @param array $array
+     * @param string $current
      * @return stdClass
      */
     private function get_prev_next($array, $current) {
