@@ -44,7 +44,7 @@ class block_tb_course_nav_nav_renderer extends plugin_renderer_base {
      * @throws moodle_exception
      */
     public function render_nav($template) {
-        if (isset($template->config->onesection) && ($template->config->onesection == 1)) {
+        if (isset($template->config->show_current_section) && ($template->config->show_current_section == 1)) {
             return $this->render_from_template(
                 'block_tb_course_nav/coursenav_onesection',
                 $template

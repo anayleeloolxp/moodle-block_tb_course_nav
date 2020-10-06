@@ -140,6 +140,11 @@ class block_tb_course_nav extends block_base {
         $resposedata = json_decode($output);
         $settingleeloolxp = $resposedata->data->block_settings;
 
+        if (empty($settingleeloolxp->block_title)) {
+            $settingleeloolxp->block_title = get_string('displayname', 'block_tb_course_nav');
+        }
+        $this->title = $settingleeloolxp->block_title;
+
         $this->content = new stdClass();
         $this->content->footer = '';
         $this->content->text = '';
@@ -442,7 +447,7 @@ class block_tb_course_nav extends block_base {
             $template->inactivity = true;
         }
         $template->coursename = $course->fullname;
-        $template->config = $this->config;
+        $template->config = $settingleeloolxp;
         $renderer = $this->page->get_renderer(
             'block_tb_course_nav',
             'nav'
