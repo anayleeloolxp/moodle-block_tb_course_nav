@@ -90,17 +90,13 @@
                     </ul>
                 </div>
             </div>
-            <div id="collapse{{number}}" class="section-collapse collapse {{#selected}}show{{/selected}}" aria-labelledby="heading{{number}}">
+            <div id="collapse{{number}}" class="section-collapse collapse {{#selected}}show{{/selected}}"  aria-labelledby="heading{{number}}">
                 <div class="section-body">
                     <ul class="activities">
                         {{#modules}}
                             {{^onlytitles}}
                                 <li>
-                                    <a href="{{{url}}}" class="{{active}} {{#label}}modulenavigationlabel{{/label}}">
-                                        <div class="activityname">
-                                            {{{name}}}
-                                        </div>
-                                    </a>
+                                    
                                 </li>
                             {{/onlytitles}}
                         {{/modules}}
