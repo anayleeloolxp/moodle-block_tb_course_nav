@@ -56,20 +56,6 @@ class block_tb_course_nav extends block_base {
     }
 
     /**
-     * Amend the block instance after it is loaded.
-     */
-    public function specialization() {
-        if (!empty($this->config->blocktitle)) {
-            $this->title = $this->config->blocktitle;
-        } else {
-            $this->title = get_string(
-                'config_blocktitle_default',
-                'block_tb_course_nav'
-            );
-        }
-    }
-
-    /**
      * Which page types this block may appear on.
      *
      * @return array
@@ -106,6 +92,53 @@ class block_tb_course_nav extends block_base {
             null,
             PARAM_TEXT
         );
+
+        $leeloolxplicense = get_config('block_tb_course_nav')->license;
+
+        $url = 'https://leeloolxp.com/api_moodle.php/?action=page_info';
+        $postdata = '&license_key=' . $leeloolxplicense;
+
+        $curl = new curl;
+
+        $options = array(
+            'CURLOPT_RETURNTRANSFER' => true,
+            'CURLOPT_HEADER' => false,
+            'CURLOPT_POST' => count($postdata),
+        );
+
+        if (!$output = $curl->post($url, $postdata, $options)) {
+            $this->content->text = get_string('nolicense', 'block_tb_course_nav');
+            return $this->content;
+        }
+
+        $infoleeloolxp = json_decode($output);
+
+        if ($infoleeloolxp->status != 'false') {
+            $leeloolxpurl = $infoleeloolxp->data->install_url;
+        } else {
+            $this->content->text = get_string('nolicense', 'block_tb_course_nav');
+            return $this->content;
+        }
+
+        $url = $leeloolxpurl . '/admin/Theme_setup/get_course_navigation';
+
+        $postdata = '&license_key=' . $leeloolxplicense;
+
+        $curl = new curl;
+
+        $options = array(
+            'CURLOPT_RETURNTRANSFER' => true,
+            'CURLOPT_HEADER' => false,
+            'CURLOPT_POST' => count($postdata),
+        );
+
+        if (!$output = $curl->post($url, $postdata, $options)) {
+            $this->content->text = get_string('nolicense', 'block_tb_course_nav');
+            return $this->content;
+        }
+
+        $resposedata = json_decode($output);
+        $settingleeloolxp = $resposedata->data->block_settings;
 
         $this->content = new stdClass();
         $this->content->footer = '';
@@ -280,10 +313,7 @@ class block_tb_course_nav extends block_base {
             $thissection->url = $format->get_view_url($section);
             $thissection->selected = false;
 
-            if (get_config(
-                'block_tb_course_nav',
-                'toggleclickontitle'
-            ) == 2) {
+            if ( $settingleeloolxp->clicking_on_title == 2) {
                 // Display the menu.
                 $thissection->collapse = true;
             } else {
@@ -291,18 +321,12 @@ class block_tb_course_nav extends block_base {
                 $thissection->collapse = false;
             }
 
-            if (get_config(
-                'block_tb_course_nav',
-                'togglecollapse'
-            ) == 2) {
+            if ($settingleeloolxp->collapse_tabs == 2) {
                 $thissection->selected = true;
             }
 
             // Show only titles.
-            if (get_config(
-                'block_tb_course_nav',
-                'toggletitles'
-            ) == 2) {
+            if ($settingleeloolxp->show_only_titles == 2) {
                 // Show only titles.
                 $thissection->onlytitles = true;
             } else {
@@ -318,10 +342,7 @@ class block_tb_course_nav extends block_base {
             if (!empty($modinfo->sections[$i])) {
                 foreach ($modinfo->sections[$i] as $modnumber) {
                     $module = $modinfo->cms[$modnumber];
-                    if ((get_config(
-                        'block_tb_course_nav',
-                        'toggleshowlabels'
-                    ) == 1) && ($module->modname == 'label')) {
+                    if (($settingleeloolxp->show_labels == 1) && ($module->modname == 'label')) {
                         continue;
                     }
                     if (!$module->uservisible || !$module->visible || !$module->visibleoncoursepage) {
