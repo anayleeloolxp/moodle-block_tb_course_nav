@@ -1,5 +1,13 @@
 language: php
 
+addons:
+  postgresql: "9.6"
+  
+services:
+  - mysql
+  - postgresql
+  - docker  
+
 cache:
   directories:
     - $HOME/.composer/cache
