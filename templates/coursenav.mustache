@@ -65,15 +65,15 @@
                     <ul class="allpagination">
                         <li class="allsectionnames">
                             {{#collapse}}
-                            <a href="{{{url}}}">{{{title}}}</a>
+                            <a href="{{{url}}}">{{title}}</a>
                             {{/collapse}}
                             {{^collapse}}
                                 {{#onlytitles}}
-                                    <a href="{{{url}}}">{{{title}}}</a>
+                                    <a href="{{{url}}}">{{title}}</a>
                                 {{/onlytitles}}
                                 {{^onlytitles}}
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{number}}"
-                                   aria-expanded="true" aria-controls="collapse{{number}}">{{{title}}}</a>
+                                   aria-expanded="true" aria-controls="collapse{{number}}">{{title}}</a>
                                 {{/onlytitles}}
                             {{/collapse}}
                         </li>

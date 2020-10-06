@@ -434,8 +434,8 @@ class block_tb_course_nav extends block_base {
      *
      * Function to get the previous and next values in an array.
      *
-     * @param $array
-     * @param $current
+     * @param array $array
+     * @param string $current
      * @return stdClass
      */
     private function get_prev_next($array, $current) {
