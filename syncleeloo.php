@@ -1,5 +1,5 @@
 <?php
-// This file is part of The Course Module Navigation Block
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Settings for course module navigation.
+ * Moodle Get settings from L
  *
  * @package    block_tb_course_nav
  * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
@@ -23,21 +23,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+require('../../config.php');
 
-if ($ADMIN->fulltree) {
-
-    require_once($CFG->dirroot . '/blocks/tb_course_nav/lib.php');
-
-    $setting = new admin_setting_configtext(
-        'block_tb_course_nav/license',
-        get_string('license', 'block_tb_course_nav'),
-        get_string('license', 'block_tb_course_nav'),
-        0
-    );
-    $setting->set_updatedcallback(updateconfcourse_nav());
-    $settings->add($setting);
-
-    $setting = new admin_setting_configcourse_nav('block_tb_course_nav/settingsjson', '', '', '', PARAM_RAW);
-    $settings->add($setting);
-}
+require_once($CFG->libdir . '/filelib.php');
+require_once($CFG->dirroot . '/blocks/tb_course_nav/locallib.php');
+updateconfcourse_nav();
