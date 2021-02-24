@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once ($CFG->libdir . '/adminlib.php');
-require_once ($CFG->dirroot . '/blocks/tb_course_nav/locallib.php');
+require_once($CFG->libdir . '/adminlib.php');
+require_once($CFG->dirroot . '/blocks/tb_course_nav/locallib.php');
 
 /**
  * The most flexibly setting, user is typing text
