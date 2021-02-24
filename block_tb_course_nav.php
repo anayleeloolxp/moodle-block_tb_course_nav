@@ -99,7 +99,7 @@ class block_tb_course_nav extends block_base {
         $settingleeloolxp = $resposedata->data->block_settings;
 
         if (empty($settingleeloolxp->block_title)) {
-            $settingleeloolxp->block_title = get_string('displayname', 'block_tb_course_nav');
+            @$settingleeloolxp->block_title = get_string('displayname', 'block_tb_course_nav');
         }
         $this->title = $settingleeloolxp->block_title;
 
@@ -276,7 +276,7 @@ class block_tb_course_nav extends block_base {
             $thissection->url = $format->get_view_url($section);
             $thissection->selected = false;
 
-            if ( $settingleeloolxp->clicking_on_title == 2) {
+            if (@$settingleeloolxp->clicking_on_title == 2) {
                 // Display the menu.
                 $thissection->collapse = true;
             } else {
@@ -284,12 +284,12 @@ class block_tb_course_nav extends block_base {
                 $thissection->collapse = false;
             }
 
-            if ($settingleeloolxp->collapse_tabs == 2) {
+            if (@$settingleeloolxp->collapse_tabs == 2) {
                 $thissection->selected = true;
             }
 
             // Show only titles.
-            if ($settingleeloolxp->show_only_titles == 2) {
+            if (@$settingleeloolxp->show_only_titles == 2) {
                 // Show only titles.
                 $thissection->onlytitles = true;
             } else {
@@ -305,7 +305,7 @@ class block_tb_course_nav extends block_base {
             if (!empty($modinfo->sections[$i])) {
                 foreach ($modinfo->sections[$i] as $modnumber) {
                     $module = $modinfo->cms[$modnumber];
-                    if (($settingleeloolxp->show_labels == 1) && ($module->modname == 'label')) {
+                    if ((@$settingleeloolxp->show_labels == 1) && ($module->modname == 'label')) {
                         continue;
                     }
                     if (!$module->uservisible || !$module->visible || !$module->visibleoncoursepage) {
@@ -452,12 +452,12 @@ class block_tb_course_nav extends block_base {
         $this->page->navigation->initialise();
         return clone ($this->page->navigation);
     }
-    
+
     /**
      * Get settings from Leeloo
      */
     public function cron() {
-        require_once($CFG->dirroot . '/blocks/tb_course_nav/lib.php');
+        require_once ($CFG->dirroot . '/blocks/tb_course_nav/lib.php');
         updateconfcourse_nav();
     }
 }

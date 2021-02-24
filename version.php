@@ -29,4 +29,4 @@ $plugin->release = '1.1';
 $plugin->version = 2019052015;
 $plugin->requires = 2018051700; // Moodle 3.5 and above.
 $plugin->maturity = MATURITY_STABLE;
-$plugin->cron = 60*5; //5mins.
+$plugin->cron = 60 * 5; // 5mins.

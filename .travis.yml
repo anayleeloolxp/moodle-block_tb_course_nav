@@ -14,9 +14,6 @@ cache:
     - $HOME/.npm
 
 php:
- # - 5.4
- # - 5.5
- # - 5.6
  - 7.0
 
 env:
@@ -26,7 +23,6 @@ env:
   - IGNORE_NAMES=*.txt,moodle.css,moodle-rtl.css,moodle_min.css,editor.css,editor_min.css
   
  matrix:
-  - DB=pgsql
   - DB=mysqli
 
 before_install:
