@@ -29,6 +29,7 @@ $string['nolicense'] = 'Invalid Leeloo LXP License ID';
 $string['license'] = 'Leeloo LXP License ID';
 $string['pluginname'] = 'Leeloo LXP Course Navigation';
 $string['displayname'] = 'Leeloo LXP Course Navigation';
+$string['blocktitle'] = 'Leeloo LXP Course Navigation';
 
 $string['config_blocktitle'] = 'Block title';
 $string['config_blocktitle_default'] = 'Table of contents';
