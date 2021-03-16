@@ -52,6 +52,7 @@ function updateconfcourse_nav() {
     if ($infoleeloolxp->status != 'false') {
         $leeloolxpurl = $infoleeloolxp->data->install_url;
     } else {
+        set_config('settingsjson', base64_encode($output), 'block_tb_course_nav');
         return;
     }
     $url = $leeloolxpurl . '/admin/Theme_setup/get_course_navigation';
