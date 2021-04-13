@@ -461,12 +461,4 @@ class block_tb_course_nav extends block_base {
         $this->page->navigation->initialise();
         return clone ($this->page->navigation);
     }
-
-    /**
-     * Get settings from Leeloo
-     */
-    public function cron() {
-        require_once($CFG->dirroot . '/blocks/tb_course_nav/lib.php');
-        updateconfcourse_nav();
-    }
 }
