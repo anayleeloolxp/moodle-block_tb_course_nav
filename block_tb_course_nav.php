@@ -98,7 +98,11 @@ class block_tb_course_nav extends block_base {
         $resposedata = json_decode(base64_decode($settingsjson));
 
         if (!isset($resposedata->data->block_settings)) {
-            $this->title = get_string('blocktitle', 'block_tb_course_nav');
+            if ($this->page->user_is_editing()) {
+                $this->title = get_string('blocktitle', 'block_tb_course_nav');
+            } else {
+                $this->title = '';
+            }
             $this->content = new stdClass();
             $this->content->text = '';
             $this->content->footer = '';
@@ -108,7 +112,11 @@ class block_tb_course_nav extends block_base {
         $settingleeloolxp = $resposedata->data->block_settings;
 
         if (empty($settingleeloolxp->block_title)) {
-            @$settingleeloolxp->block_title = get_string('displayname', 'block_tb_course_nav');
+            if ($this->page->user_is_editing()) {
+                @$settingleeloolxp->block_title = get_string('displayname', 'block_tb_course_nav');
+            } else {
+                @$settingleeloolxp->block_title = '';
+            }
         }
         $this->title = $settingleeloolxp->block_title;
 
