@@ -301,7 +301,7 @@ class block_tb_course_nav extends block_base {
                 $thissection->collapse = false;
             }
 
-            if (@$settingleeloolxp->collapse_tabs == 2) {
+            if (@$settingleeloolxp->collapse_tabs == 1) {
                 $thissection->selected = true;
             }
 
