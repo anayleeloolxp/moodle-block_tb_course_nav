@@ -8,6 +8,8 @@ Manage all settings in a single page, right from your Leeloo LXP theme back end.
 
 Add a Course Navigation block to your courses, with expandable/collapsible sections and direct links to every activity and resource. The block also includes a completion tracking indicator.
 
+### This plugin is based on the Course Module navigation plugin by Pimenko.
+
 ## Available options:
 
 * Block title

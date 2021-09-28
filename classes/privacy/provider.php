@@ -19,6 +19,7 @@
  *
  * @package    block_tb_course_nav
  * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @copyright  based on work by 2019 Pimenko <contact@pimenko.com> <pimenko.com>
  * @author     Leeloo LXP <info@leeloolxp.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -32,6 +33,7 @@ use core_privacy\local\metadata\null_provider;
 /**
  * Privacy Subsystem for block_tb_course_nav implementing null_provider.
  * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @copyright  based on work by 2019 Pimenko <contact@pimenko.com> <pimenko.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements \core_privacy\local\metadata\null_provider {
