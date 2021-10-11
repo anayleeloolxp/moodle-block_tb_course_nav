@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Fetch and Update Configration From L
  */
-function updateconfcourse_nav() {
+function block_tb_course_nav_updateconf() {
     if (isset(get_config('block_tb_course_nav')->license)) {
         $leeloolxplicense = get_config('block_tb_course_nav')->license;
     } else {

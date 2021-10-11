@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_tb_course_nav';
 $plugin->release = '1.0.2';
-$plugin->version = 2021050501;
+$plugin->version = 2021101100;
 $plugin->requires = 2018051700; // Moodle 3.5 and above.
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array(

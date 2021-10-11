@@ -34,7 +34,7 @@ if ($ADMIN->fulltree) {
         get_string('license', 'block_tb_course_nav'),
         0
     );
-    $setting->set_updatedcallback(updateconfcourse_nav());
+    $setting->set_updatedcallback(block_tb_course_nav_updateconf());
     $settings->add($setting);
 
     $setting = new admin_setting_configcourse_nav('block_tb_course_nav/settingsjson', '', '', '', PARAM_RAW);
