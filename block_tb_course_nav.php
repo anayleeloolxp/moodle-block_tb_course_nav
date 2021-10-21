@@ -367,7 +367,7 @@ class block_tb_course_nav extends block_base {
                     $thissection->modules[] = $thismod;
                 }
                 $thissection->hasmodules = (count($thissection->modules) > 0);
-                if ($thissection->title != 'General') {
+                if ($thissection->title != 'General' && $thissection->hasmodules == 1) {
                     $template->sections[] = $thissection;
                 }
             }
