@@ -190,7 +190,7 @@ class block_tb_course_nav extends block_base {
             // Uh-oh we are in a activity.
             $inactivity = true;
             if ($cm = $DB->get_record_sql(
-                "SELECT cm.*, md.name AS modname
+                "SELECT cm.*, md.name modname
                                            FROM {course_modules} cm
                                            JOIN {modules} md ON md.id = cm.module
                                            WHERE cm.id = ?",
