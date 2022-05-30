@@ -10,15 +10,15 @@ jobs:
       postgres:
         image: postgres:10
         env:
-          POSTGRES_USER: 'postgres'
-          POSTGRES_HOST_AUTH_METHOD: 'trust'
+          POSTGRES_USER: "postgres"
+          POSTGRES_HOST_AUTH_METHOD: "trust"
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
       mariadb:
         image: mariadb:10
         env:
-          MYSQL_USER: 'root'
+          MYSQL_USER: "root"
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
           MYSQL_CHARACTER_SET_SERVER: "utf8mb4"
           MYSQL_COLLATION_SERVER: "utf8mb4_unicode_ci"
@@ -30,8 +30,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.3']
-        moodle-branch: ['MOODLE_311_STABLE']
+        php: ["7.3"]
+        moodle-branch: ["MOODLE_311_STABLE"]
         database: [pgsql, mariadb]
 
     steps:
@@ -92,9 +92,9 @@ jobs:
         if: ${{ always() }}
         run: moodle-plugin-ci savepoints
 
-      - name: Mustache Lint
-        if: ${{ always() }}
-        run: moodle-plugin-ci mustache
+      #- name: Mustache Lint
+      #  if: ${{ always() }}
+      #  run: moodle-plugin-ci mustache
 
       - name: Grunt
         if: ${{ always() }}
