@@ -26,8 +26,6 @@
 
 namespace block_tb_course_nav\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 use core_privacy\local\metadata\null_provider;
 
 /**
