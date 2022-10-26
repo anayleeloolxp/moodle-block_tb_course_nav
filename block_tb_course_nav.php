@@ -111,6 +111,11 @@ class block_tb_course_nav extends block_base {
             return $this->content;
         }
 
+        $summaryformatoptions = new stdClass();
+        $summaryformatoptions->noclean = false;
+        $summaryformatoptions->overflowdiv = false;
+        $summaryformatoptions->filter = true;
+
         $settingleeloolxp = $resposedata->data->block_settings;
 
         if (empty($settingleeloolxp->block_title)) {
@@ -120,7 +125,7 @@ class block_tb_course_nav extends block_base {
                 @$settingleeloolxp->block_title = '';
             }
         }
-        $this->title = $settingleeloolxp->block_title;
+        $this->title = format_text($settingleeloolxp->block_title, 1, $summaryformatoptions);
 
         $this->content = new stdClass();
         $this->content->footer = '';
